@@ -1,0 +1,52 @@
+/* user.css ----------------------------------------------------------------- */
+BODY {
+	background: #cccccc;
+	color: #000000;
+	margin: 0px;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 10px;
+	line-height: 125%;
+	}
+
+.storeLogo{
+	background: #FFFFFF;
+	background-image: url(images/header_bkgd.gif);
+	BACKGROUND-REPEAT: repeat;
+	text-align: center;
+}
+
+.contentContainer{
+	background: #ffffff;
+}
+#bodyWrapper{
+	margin-top:1em;
+	border: 2px solid #FFFFFF;
+}
+
+.container{
+	background: #ffffff;
+}
+
+A {
+  color: #000000;
+  text-decoration: underline;
+}
+
+A:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}

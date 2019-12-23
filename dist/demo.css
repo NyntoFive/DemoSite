@@ -1,0 +1,676 @@
+.add-to-cart {
+  --color: #fff;
+  --icon: var(--color);
+  --cart: #fff;
+  --dots: #fff;
+  --background: rgb(21, 179, 0);
+  --shadow: rgba(0, 9, 61, 0.16);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+  border-radius: 22px;
+  padding: 15px 25px;
+  font-weight: 500;
+  line-height: 20px;
+  -webkit-transform: scale(var(--s, 0.97));
+          transform: scale(var(--s, 0.97));
+  -webkit-box-shadow: 0 var(--s-y, 4px) var(--s-b, 12px) var(--shadow);
+          box-shadow: 0 var(--s-y, 4px) var(--s-b, 12px) var(--shadow);
+  color: var(--color);
+  background: var(--background);
+  -webkit-transition: -webkit-transform .3s, -webkit-box-shadow .3s;
+  transition: -webkit-transform .3s, -webkit-box-shadow .3s;
+  transition: transform .3s, box-shadow .3s;
+  transition: transform .3s, box-shadow .3s, -webkit-transform .3s, -webkit-box-shadow .3s;
+}
+
+.add-to-cart .default {
+  padding-left: 16px;
+  position: relative;
+  opacity: var(--o, 1);
+  -webkit-transform: scale(var(--s, 1));
+          transform: scale(var(--s, 1));
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: transform .3s, opacity .3s;
+  transition: transform .3s, opacity .3s, -webkit-transform .3s;
+  -webkit-transition-delay: var(--d, 0.3s);
+          transition-delay: var(--d, 0.3s);
+}
+
+.add-to-cart .default:before, .add-to-cart .default:after {
+  content: '';
+  width: 2px;
+  height: 12px;
+  left: 0;
+  top: 4px;
+  border-radius: 1px;
+  background: var(--icon);
+  position: absolute;
+  -webkit-transform: rotate(var(--r, 0deg));
+          transform: rotate(var(--r, 0deg));
+  -webkit-transition: -webkit-transform .25s;
+  transition: -webkit-transform .25s;
+  transition: transform .25s;
+  transition: transform .25s, -webkit-transform .25s;
+}
+
+.add-to-cart .default:after {
+  --r: 90deg;
+}
+
+.add-to-cart .success {
+  opacity: var(--o, 0);
+  -webkit-transform: translate(-50%, var(--y, 12px));
+          transform: translate(-50%, var(--y, 12px));
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .3s, -webkit-transform .3s;
+  -webkit-transition-delay: var(--d, 0s);
+          transition-delay: var(--d, 0s);
+}
+
+.add-to-cart .dots {
+  width: 4px;
+  height: 4px;
+  top: 20px;
+  left: 50%;
+  margin-left: -7px;
+  border-radius: 2px;
+  position: absolute;
+  -webkit-transform-origin: 10px 50%;
+          transform-origin: 10px 50%;
+  background: var(--dots);
+  -webkit-box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+          box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+  opacity: var(--o, 0);
+  -webkit-transform: scale(var(--s, 0.4));
+          transform: scale(var(--s, 0.4));
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .3s, -webkit-transform .3s;
+  -webkit-transition-delay: var(--d, 0s);
+          transition-delay: var(--d, 0s);
+}
+
+.add-to-cart .cart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(white, black);
+          mask-image: radial-gradient(white, black);
+}
+
+.add-to-cart .cart:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 16px;
+  background: var(--background);
+  top: 17px;
+  right: 100%;
+  z-index: 1;
+  margin-right: -20px;
+  -webkit-transform: translateX(-18px) rotate(-16deg);
+          transform: translateX(-18px) rotate(-16deg);
+}
+
+.add-to-cart .cart > div {
+  top: 13px;
+  right: 100%;
+  -webkit-transform: translateX(-18px) rotate(-16deg);
+          transform: translateX(-18px) rotate(-16deg);
+  position: absolute;
+  z-index: 2;
+  -webkit-transform-origin: 1px 21px;
+          transform-origin: 1px 21px;
+}
+
+.add-to-cart .cart > div:before, .add-to-cart .cart > div:after {
+  content: '';
+  position: absolute;
+  top: var(--t, 4px);
+  left: var(--l, 0);
+  height: 2px;
+  width: var(--w, 18px);
+  background: var(--cart);
+  border-radius: 1px;
+}
+
+.add-to-cart .cart > div:after {
+  --w: 16px;
+  --t: 14px;
+  --l: 1px;
+}
+
+.add-to-cart .cart > div > div {
+  width: 2px;
+  height: var(--h, 15px);
+  border-radius: 1px;
+  -webkit-transform: rotate(var(--r, -8deg));
+          transform: rotate(var(--r, -8deg));
+  background: var(--cart);
+  position: relative;
+}
+
+.add-to-cart .cart > div > div:before, .add-to-cart .cart > div > div:after {
+  content: '';
+  position: absolute;
+  background: inherit;
+}
+
+.add-to-cart .cart > div > div:after {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  bottom: var(--b, -6px);
+  left: var(--l, 0);
+}
+
+.add-to-cart .cart > div > div:first-child:before {
+  border-radius: inherit;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 6px;
+  -webkit-transform-origin: 5px 1px;
+          transform-origin: 5px 1px;
+  -webkit-transform: rotate(16deg);
+          transform: rotate(16deg);
+}
+
+.add-to-cart .cart > div > div:last-child {
+  --h: 12px;
+  --r: 8deg;
+  position: absolute;
+  left: 16px;
+  bottom: -1px;
+}
+
+.add-to-cart .cart > div > div:last-child:after {
+  --l: -2px;
+  --b: -5px;
+}
+
+.add-to-cart.added .default {
+  --o: 0;
+  --s: .8;
+  --d: 0s;
+}
+
+.add-to-cart.added .default:before {
+  --r: -180deg;
+}
+
+.add-to-cart.added .default:after {
+  --r: -90deg;
+}
+
+.add-to-cart.added .dots {
+  --o: 1;
+  --s: 1;
+  --d: .3s;
+  -webkit-animation: dots 2s linear forwards;
+          animation: dots 2s linear forwards;
+}
+
+.add-to-cart.added .success {
+  --o: 1;
+  --y: 0;
+  --d: 1.8s;
+}
+
+.add-to-cart.added .cart:before,
+.add-to-cart.added .cart > div {
+  -webkit-animation: cart 2s forwards;
+          animation: cart 2s forwards;
+}
+
+.add-to-cart:not(.added):hover {
+  --s: 1;
+  --s-y: 8px;
+  --s-b: 20px;
+}
+
+.add-to-cart:not(.added):active {
+  --s: .94;
+  --s-y: 2px;
+  --s-b: 6px;
+}
+
+@-webkit-keyframes cart {
+  41%,
+  49%,
+  57%,
+  60% {
+    -webkit-transform: translateX(72px) rotate(0deg);
+            transform: translateX(72px) rotate(0deg);
+  }
+  40%,
+  47%,
+  54% {
+    -webkit-transform: translateX(72px) rotate(0deg) translateY(1px);
+            transform: translateX(72px) rotate(0deg) translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateX(180px) rotate(-16deg);
+            transform: translateX(180px) rotate(-16deg);
+  }
+}
+
+@keyframes cart {
+  41%,
+  49%,
+  57%,
+  60% {
+    -webkit-transform: translateX(72px) rotate(0deg);
+            transform: translateX(72px) rotate(0deg);
+  }
+  40%,
+  47%,
+  54% {
+    -webkit-transform: translateX(72px) rotate(0deg) translateY(1px);
+            transform: translateX(72px) rotate(0deg) translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateX(180px) rotate(-16deg);
+            transform: translateX(180px) rotate(-16deg);
+  }
+}
+
+@-webkit-keyframes dots {
+  5% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-20px) rotate(-32deg);
+            transform: translateY(-20px) rotate(-32deg);
+    -webkit-box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+            box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+  }
+  31% {
+    -webkit-box-shadow: 5px -4px 0 var(--dots), 10px -8px 0 var(--dots);
+            box-shadow: 5px -4px 0 var(--dots), 10px -8px 0 var(--dots);
+  }
+  32%,
+  50% {
+    -webkit-transform: translateY(0) rotate(0deg);
+            transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  45%,
+  100% {
+    -webkit-box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+            box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dots {
+  5% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  25% {
+    -webkit-transform: translateY(-20px) rotate(-32deg);
+            transform: translateY(-20px) rotate(-32deg);
+    -webkit-box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+            box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+  }
+  31% {
+    -webkit-box-shadow: 5px -4px 0 var(--dots), 10px -8px 0 var(--dots);
+            box-shadow: 5px -4px 0 var(--dots), 10px -8px 0 var(--dots);
+  }
+  32%,
+  50% {
+    -webkit-transform: translateY(0) rotate(0deg);
+            transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  45%,
+  100% {
+    -webkit-box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+            box-shadow: 5px 0 0 var(--dots), 10px 0 0 var(--dots);
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* setup */
+.debug {
+  border: 2px solid goldenrod;
+}
+
+.text-center {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background-image: radial-gradient(circle 621px at 25.3% 13.8%, white 0%, #eaecff 90%);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  min-height: 110vh;
+}
+
+.btn-grad {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  -webkit-box-shadow: 0 0 20px #eee;
+          box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+}
+
+.btn-all {
+  background-image: -webkit-gradient(linear, left top, right top, from(#01830c), color-stop(51%, #015808), to(#01ff16));
+  background-image: linear-gradient(to right, #01830c 0%, #015808 51%, #01ff16 100%);
+}
+
+.btn-fixed {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ff2600), color-stop(51%, #df522b), to(#a01801));
+  background-image: linear-gradient(to right, #ff2600 0%, #df522b 51%, #a01801 100%);
+}
+
+.btn-folder {
+  background-image: -webkit-gradient(linear, left top, right top, from(#dededf), color-stop(51%, #00a8f6), to(#a1c4fd));
+  background-image: linear-gradient(to right, #dededf 0%, #00a8f6 51%, #a1c4fd 100%);
+}
+
+.btn-damascus {
+  background-image: -webkit-gradient(linear, left top, right top, from(#0004ff), color-stop(51%, #02a6f8), to(#203cdb));
+  background-image: linear-gradient(to right, #0004ff 0%, #02a6f8 51%, #203cdb 100%);
+}
+
+h3.h3 {
+  text-align: center;
+  margin: 1em;
+  text-transform: capitalize;
+  font-size: 1.7em;
+}
+
+.product-grid7 {
+  font-family: "Roboto Slab", serif;
+  position: relative;
+  z-index: 1;
+  outline: 2px groove black;
+}
+
+.product-content {
+  background-color: whitesmoke;
+}
+
+.product-grid7 .product-image7 {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+  position: relative;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.product-grid7 .product-image7 a {
+  display: block;
+}
+
+.product-grid7 .product-image7 img {
+  width: 100%;
+  height: auto;
+}
+
+.product-grid7 .pic-1 {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+
+.product-grid7 .pic-2 {
+  opacity: 0;
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+}
+
+.product-grid7:hover .pic-2 {
+  opacity: 1;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.product-grid7 .product-new-label {
+  color: #fff;
+  background-color: #ff0000;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.product-grid7 .product-content {
+  text-align: center;
+  padding: 10px 0 0;
+}
+
+.product-grid7 .title {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 0 0 10px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.product-grid7 .title a {
+  color: #0a0092;
+  text-shadow: 0px 1px 1px #8a8a8a;
+}
+
+.product-grid7 .title a:hover {
+  color: #78e08f;
+}
+
+.product-grid7 .rating {
+  color: #78e08f;
+  font-size: 12px;
+  padding: 0;
+  margin: 0 0 10px;
+  list-style: none;
+}
+
+.product-grid7 .price {
+  color: #333;
+  font-size: 20px;
+  font-family: Lora, serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.product-grid7 .price span {
+  color: #999;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: line-through;
+  margin-left: 7px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 990px) {
+  .product-grid7 {
+    margin-bottom: 30px;
+  }
+}
+
+/* Cat Listing Setup /////////////////////////////////////////////// */
+a {
+  color: black;
+}
+
+.caption {
+  font-size: 1rem;
+  text-shadow: 1px 2px 2px #444444;
+}
+
+/* Filtering Hooks */
+.mycard {
+  margin-bottom: 1%;
+  float: left;
+  display: none;
+  max-width: 300px;
+}
+
+.show {
+  display: block;
+}
+
+/* *Shiny Filter Buttons  */
+.btn-grad.active {
+  background-color: rgba(102, 102, 102, 0.322);
+  color: whitesmoke;
+}
+
+.btn-grad {
+  cursor: pointer;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: center;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  -webkit-box-shadow: 0 0 5px #010101;
+          box-shadow: 0 0 5px #010101;
+  border-radius: 10px;
+}
+
+.btn-grad:hover {
+  /* change the direction of the change here */
+  background-position: center right;
+}
+
+.btn-all {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ff2600), color-stop(51%, #adadad), to(#203cdb));
+  background-image: linear-gradient(to right, #ff2600 0%, #adadad 51%, #203cdb 100%);
+}
+
+.btn-fixed {
+  background-image: -webkit-gradient(linear, left top, right top, from(#adadad), color-stop(51%, #a80505), to(#e42301));
+  background-image: linear-gradient(to right, #adadad 0%, #a80505 51%, #e42301 100%);
+}
+
+.btn-folder {
+  background-image: -webkit-gradient(linear, left top, right top, from(#adadad), color-stop(51%, #bbbbbb91), to(#ffffff00));
+  background-image: linear-gradient(to right, #adadad 0%, #bbbbbb91 51%, #ffffff00 100%);
+}
+
+.btn-damascus {
+  background-image: -webkit-gradient(linear, left top, right top, from(#0004ff), color-stop(51%, #02a6f8), to(#203cdb));
+  background-image: linear-gradient(to right, #0004ff 0%, #02a6f8 51%, #203cdb 100%);
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+/* Overlays /////////////////////////////////////////////////////////// */
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 140, 255, 0.699);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.overlay-container:hover .overlay {
+  height: 100%;
+}
+
+.overlay-text {
+  color: whitesmoke;
+  font-size: 14px;
+  line-height: 1.15rem;
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-25%, -25%);
+  text-align: justify;
+}
+
+.add-to-cart {
+  margin-top: 1rem;
+  margin-bottom: 1em;
+}
+/*# sourceMappingURL=demo.css.map */
